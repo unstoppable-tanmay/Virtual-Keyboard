@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Keyboard</title>
+</head>
+<style>
+    html { font-size: 4vw; background-color: green; color: white; padding: 1em; align-items: center; text-align: center; }
+    .show{
+        width: 400px;
+        align-items: center;
+        text-align: center;
+        height: 300px;
+        overflow: scroll;
+        font-size: 15px;
+    }
+    ::-webkit-scrollbar{
+        display: none;
+    }
+</style>
+    <body onload="setMyKeyDownListener()">
+        <div>
+            <input id="MyInputId">
+        </div>
+        <div class="show" id="show"></div>
+    </body>
+    <script>
+        function setMyKeyDownListener() {
+            window.addEventListener(
+              "keydown",
+              function(event) {MyFunction(event.key)}
+            )
+        }
+
+        function MyFunction (the_Key) {
+            document.getElementById("show").innerHTML = "the "+the_Key+" is pressed.\n";
+        }
+    </script>
+</html>
